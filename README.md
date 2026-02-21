@@ -11,6 +11,8 @@ Description: This website is going to be used to be a hub for different math equ
 
 Live Share Link: https://prod.liveshare.vsengsaas.visualstudio.com/join?8B009B8880F6F3FC00B89E316569E72726C3
 
+Website Link: http://127.0.0.1:5500/math-casino/index.html
+
 Members work:
 
 Stanley Parker: Learn HTML to create the website and code Cribbage
