@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Black Jack</title>
+    <style>
+        button img{
+            transition: transform 0.3s ease;
+        }
+        button:hover img{
+            transform: scale(1.05);
+            filter: brightness(1.05)
+        }
+
+        .counter-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7); /* Added for visibility */
+            color: rgb(0, 255, 170); /* Fitting for Blackjack! */
+            border-radius: 10px;
+            text-align: right;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <h1>Black Jack Math</h1>
+    <div class="counter-container">
+        <span>Your Money:<br></span>
+        <span>$</span><span id="playerMoney">0</span>
+    </div>
+    <!-- Styles -->
+ <style>
+    .tabcontent { display: none; }
+ </style>
+
+
+<!-- Tab Links -->
+ <div id="createImages"></div>
+<div class="tab">
+    <button  type="button" onclick="openTab(event, 'Learn'); removeImages();" class = "play-btn" style="border:none; background:none; cursor:pointer;">
+        <img src="https://art.pixilart.com/sr5ze779b2a6a2aws3.png" alt="Play Video", width="200"></button>
+    <button  type="button" onclick="openTab(event, 'Drills'); removeImages();" class = "play-btn" style="border:none; background:none; cursor:pointer;">
+        <img src="https://art.pixilart.com/sr5z6691dc8dd2aws3.png" alt="Play Video", width="200"> </button>
+    <button  type="button" onclick="removeImages(); removeTabs(); runBlackJack()" style="border:none; background:none; cursor:pointer;">
+        <img src="https://art.pixilart.com/sr5z6f1d6d07ecaws3.png" alt="Play Video", width="200"></button>
+
+</div>
+
+<!-- Tab Content -->
+
+<div id="Learn" class="tabcontent">
+    <h2>Welcome to the Learn tab!</h2>
+    <p>Here we can see different forms of problems you are going to see in the drills tab to help you learn!</p><br>
+    
+    <details>
+        <summary>Basic Form of Derivatives</summary>
+        <ul>
+            <li>
+                <p>The basic form of a derivative is as follows:</p>
+                <p><b>f(x)</b> is the original function: x<sup>n</sup>. <b>f'(x)</b> is the first derivative: nx<sup>n-1</sup>.</p>
+                <p><b>Example</b>: <b>f(x)</b> = 4x<sup>5</sup> + 2x<sup>2</sup> + 8. Then, <b>f'(x)</b> = 20x<sup>4</sup> + 4x.</p>
+                <p>This is called the Power Rule and is the most fundmental topic in differential calculus.</p>
+                <p>Another way of showing the derivative of something is: <sup>d</sup>&frasl;<sub>dx</sub></p>
+                <p><b>Example</b>: <sup>d</sup>&frasl;<sub>dx</sub>[f(x)] = f'(x)</p>
+            </li>
+        </ul>
+    </details><br>
+    
+    <details>
+        <summary>Important Derivatives to Remember</summary>
+        <ul>
+            <li>
+                <p>Some of the derivatives seen here are important to remember and don't always conform to normal rules.</p>
+                <h4><br>Basic Trig Derivatives</h4>
+                <p><sup>d</sup>&frasl;<sub>dx</sub>[sin(x)] = cos(x), <sup>d</sup>&frasl;<sub>dx</sub>[cos(x)] = -sin(x), <sup>d</sup>&frasl;<sub>dx</sub>[-sin(x)] = -cos(x), <sup>d</sup>&frasl;<sub>dx</sub>[-cos(x)] = -sin(x).</p>
+                <p><sup>d</sup>&frasl;<sub>dx</sub>[tan(x)] = sec<sup>2</sup>(x), <sup>d</sup>&frasl;<sub>dx</sub>[cot(x)] = -csc<sup>2</sup>(x), <sup>d</sup>&frasl;<sub>dx</sub>[sec(x)] = sec(x)tan(x), <sup>d</sup>&frasl;<sub>dx</sub>[csc(x)] = -csc(x)cot(x).</p>
+                <h4>Other Function Derivatives</h4>
+                <p><sup>d</sup>&frasl;<sub>dx</sub>[log<sub>a</sub>(x)] = <sup>1</sup>&frasl;<sub>x</sub>, <sup>d</sup>&frasl;<sub>dx</sub>[e<sup>x</sup>] = e<sup>x</sup>.</p>
+            </li>
+        </ul>
+    </details><br>
+
+    <details>
+        <summary>Chain Rule</summary>
+        <ul>
+            <li>
+                <p>The chain rule involves two functions <b>f(x)</b> is considered the "outer" function and <b>g(x)</b> is the inner function.</p>
+                <p>The formula looks like: <b>f(g(x))</b> = <b>f'(g(x)) times g'(x)</b>.</p>
+                <p>What this means is that you take the derivative of <b>f(x)</b> first and leave <b>g(x)</b> the same inside of <b>f(x)</b> and then you multiply by the derivative of <b>g(x)</b>.</p>
+                <p><b>Example</b>: sin(3x). In this example <b>f(x)</b> = sin(x) and <b>g(x)</b> = 3x. <b>f'(x)</b> = cos(x) and <b>g'(x)</b> = 3. The answer is: 3cos(3x).</p>
+            </li>
+        </ul>
+    </details><br>
+    
+    <details>
+        <summary>Product Rule</summary>
+        <ul>
+            <li>
+                <p>The product rule is used for two functions being multiplied together.</p>
+                <p>The formula looks like: <sup>d</sup>&frasl;<sub>dx</sub>[f(x)g(x)] = f'(x)g(x) + f(x)g'(x).</p>
+                <p>The derivative of f is multiplied by g and added to f multiplied by the derivative of g.</p>
+                <p><b>Example</b>: f(x) = x<sup>2</sup>, f'(x) = 2x, g(x) = e<sup>x</sup>, g'(x) = e<sup>x</sup>. <sup>d</sup>&frasl;<sub>dx</sub>[x<sup>2</sup>e<sup>x</sup>] = (2x)(e<sup>x</sup>) + (x<sup>2</sup>)(e<sup>x</sup>).</p>
+            </li>
+        </ul>
+    </details><br>
+    
+        <details>
+        <summary>Quotient Rule</summary>
+        <ul>
+            <li>
+                <p>The quotient rule involves two functions that are divided.</p>
+                <p>The formula looks like: <sup>d</sup>&frasl;<sub>dx</sub>[<sup>f(x)</sup>&frasl;<sub>g(x)</sub>] = <sup>g(x)f'(x) - f(x)g'(x)</sup>&frasl;<sub>g(x)<sup>2</sup></sub>.</p>
+                <p><b>Example</b>: f(x) = cos(x), g(x) = x<sup>2</sup>. <sup>d</sup>&frasl;<sub>dx</sub>[<sup>cos(x)</sup>&frasl;<sub>x<sup>2</sup></sub>] = <sup>2xcos(x) + sin(x)x<sup>2</sup></sup>&frasl;<sub>x<sup>4</sup></sub>.</p>
+            </li>
+        </ul>
+    </details><br>
+    
+    <details>
+        <summary>Derivative of Exponentials</summary>
+        <ul>
+            <li>
+                <p>The formula for the derivative of exponentials is for exponentials other then e<sup>x</sup> because it's derivative is itself.</p>
+                <p>The formula looks like: <sup>d</sup>&frasl;<sub>dx</sub>[a<sup>x</sup>] = a<sup>x</sup>ln(a).</p>
+                <p><b>Example</b>: <sup>d</sup>&frasl;<sub>dx</sub>[2<sup>x</sup>] = 2<sup>x</sup>ln(2).</p>
+            </li>
+        </ul>
+    </details><br>
+</div>
+
+
+<div id="Drills" class="tabcontent">
+    <h2>Welcome to the Drills tab!</h2>
+    <p>Solve Calculus problems ranging from easy to hard!</p>
+    
+    <!-- Difficulty Selection -->
+    <div id="difficultySelection">
+        <p>Select Difficulty</p>
+        <button onclick="selectDifficulty('easy')">Easy</button>
+        <button onclick="selectDifficulty('medium')">Medium</button>
+        <button onclick="selectDifficulty('hard')">Hard</button>
+    </div>
+
+    <!-- Practice Area -->
+    <div id="practiceArea" style="display:none;">
+
+        <h3 id="difficultyTitle"></h3>
+        <!-- Product Rule Section -->
+         <button onclick = "getProblemType('productRuleSelection')">
+            Open Product Rule Practice
+        </button>
+
+        <div id="productRuleSelection" style="display:none;">
+            <h3>Product Rule Practice</h3>
+
+            <button onclick="generateProblem('productRuleSelection')">
+                Generate Problem
+            </button>
+
+            <p id="productProblemDisplay"></p>
+
+            <input 
+                type="text"
+                id="productAnswerInput"
+                placeholder="Enter your derivative here"
+                style="width:200px;height:20px;"
+            >
+
+            <button onclick="checkAnswer()">Check Answer</button>
+
+            <p id="productResultMessage"></p>
+
+            <button onclick="nextProblem()">Next Problem</button>
+
+
+
+
+        </div>
+        <!-- Chain Rule Section -->
+        <button onclick="getProblemType('chainRuleSelection')">
+            Open Chainrule Practice
+        </button>
+
+        <div id="chainRuleSelection" style="display:none;">
+            <h3>Chain Rule Practice</h3>
+
+            <button onclick="generateProblem('chainRuleSelection')">
+                Generate Problem
+            </button>
+
+            <p id="chainProblemDisplay"></p>
+
+            <input 
+                type="text"
+                id="chainAnswerInput"
+                placeholder="Enter your derivative here"
+                style="width:200px;height:20px;"
+            >
+
+            <button id="checkBtn" onclick="checkAnswer()">Check Answer</button>
+
+            <p id="chainResultMessage"></p>
+
+            <button onclick="nextProblem()">Next Problem</button>
+        </div>
+
+        <br><br>
+
+        <!-- Derivative Section -->
+        <button onclick="getProblemType('derivativeSelection')">
+            Open Derivative Practice
+        </button>
+
+        <div id="derivativeSelection" style="display:none;">
+            <h3>Derivative Practice</h3>
+
+            <button onclick="generateProblem('derivativeSelection')">
+                Generate Problem
+            </button>
+
+            <p id="derivProblemDisplay"></p>
+
+            <input 
+                type="text"
+                id="derivAnswerInput"
+                placeholder="Enter your derivative here"
+                style="width:200px;height:20px;"
+            >
+
+            <button onclick="checkAnswer()">Check Answer</button>
+
+            <p id="derivResultMessage"></p>
+
+            <button onclick="nextProblem()">Next Problem</button>
+
+            <br><br>
+            <button onclick="toDifficulty()">Back To Difficulty</button>
+        </div>
+
+    </div>
+</div>
+
+
+
+  
+
+        
+<div id="Play" class="tabcontent">
+    <button onclick="runBlackJack()"></button>    
+</div>
+
+
+
+<script src="script.js"></script>
+<script src="blackjack.js"></script>
+</body>
+</html>
+
+
+
