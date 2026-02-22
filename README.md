@@ -14,7 +14,8 @@ Live Share Link: https://prod.liveshare.vsengsaas.visualstudio.com/join?D4873BCE
 Website Link: http://10.108.59.182:5500/math-casino/index.html
 
 Breaks:
-Break 1: Taken at 1:05pm, Returned at .
+Joshua and Stanley break 1: Taken at 1:05pm, Returned at 4:20pm.
+Temi arrived at 2:45pm.
 
 Members work:
 
