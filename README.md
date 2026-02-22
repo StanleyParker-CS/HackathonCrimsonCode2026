@@ -9,7 +9,7 @@ Date Ended: Sunday, February 22nd, 2026
 Description: This website is going to be used to be a hub for different math equations and uses. It will have a tab to be able to solve problems to get a currency.
              The currency can be used to play games like BlackJack in order to get more currency. At different stages of currency you will be able to earn badges.
 
-Live Share Link: https://prod.liveshare.vsengsaas.visualstudio.com/join?D4873BCE43AF818D9F5CA87B070B3F9789A8
+Live Share Link: (https://prod.liveshare.vsengsaas.visualstudio.com/join?D4873BCE43AF818D9F5CA87B070B3F9789A8)
 
 Website Link: http://10.108.59.182:5500/math-casino/index.html
 
