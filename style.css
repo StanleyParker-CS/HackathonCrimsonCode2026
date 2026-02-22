@@ -1,0 +1,65 @@
+div {
+    background-color: aqua;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solidd #484848;
+    background-color: #e5e5e5;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.play-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+
+}
+.play-btn img{
+    transition: all 0.2s ease-in-out;
+}
+.play-btn:hover img{
+    transform: translate(-3px);
+}
+/* Change background color of buttons on hover */
+.tab button:hover{
+    background-color: #c0c0c0;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #5d5d5d;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+#imageContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    padding: 10px;
+}
+.two-per-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.two-per-line img {
+    width: calc(50% - 5px); 
+}
