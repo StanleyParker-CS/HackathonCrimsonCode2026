@@ -15,4 +15,6 @@ Joshua Riley: Learn JavaScript and HTML to create the drills tab with problems a
 Thomas Hardy: Learn CSS and JavaScript to create sprites for BlackJack and assisting with the logic and visuals of the game.
 Temi Maku: Learn JavaScript and HTML for BlackJack logic and drills tab. Main programmer for Black Jack game and assisted Joshua with drills tab.
 
-We cut our project short without being able to complete the game of blackjack that fully works. It has partial visuals.
+Not all math drills work - project cut short
+
+to actaully run download all code and install vs code then get live server and click go live, there you will be able to play.
